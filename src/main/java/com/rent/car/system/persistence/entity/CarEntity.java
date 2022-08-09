@@ -1,12 +1,14 @@
 package com.rent.car.system.persistence.entity;
 
 import com.rent.car.system.persistence.enums.CarType;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
+@Builder
 @Entity
 public class CarEntity {
 
@@ -29,4 +31,8 @@ public class CarEntity {
 
     @Column(name = "car_type", nullable = false)
     private CarType carType;
+
+    @OneToOne
+    @JoinColumn(name = "rent_car_id", referencedColumnName = "id")
+    private RentCarEntity rentCar;
 }
