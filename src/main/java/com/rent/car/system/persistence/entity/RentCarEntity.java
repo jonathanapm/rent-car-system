@@ -11,12 +11,12 @@ import java.time.LocalDateTime;
 public class RentCarEntity {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer rentCarId;
 
-    @OneToOne
-    @JoinColumn(name = "car_id")
-    private CarEntity carId;
+    @OneToOne(mappedBy = "rentCar")
+    private CarEntity car;
 
     @Column(name = "date_rent", nullable = false)
     private LocalDateTime dateRent;
