@@ -10,12 +10,16 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 @Entity
+@Table
 public class CarEntity {
 
     @Id
     @Column(name = "car_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(nullable = false)
+    private String model;
 
     @Column(nullable = false)
     private String make;
