@@ -15,4 +15,6 @@ public class CarModel {
     private CarType carType;
 
     private String make;
+
+    private String model;
 }

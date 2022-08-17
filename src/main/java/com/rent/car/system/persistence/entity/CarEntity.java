@@ -3,14 +3,17 @@ package com.rent.car.system.persistence.entity;
 import com.rent.car.system.persistence.enums.CarType;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Data
 @Builder
+@Getter
+@Setter
 @Entity
-@Table
+@Table(name = "tb_car")
 public class CarEntity {
 
     @Id
@@ -33,10 +36,11 @@ public class CarEntity {
     @Column(name = "registration_date", nullable = false)
     private LocalDateTime registrationDate;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "car_type", nullable = false)
     private CarType carType;
 
     @OneToOne
-    @JoinColumn(name = "rent_car_id", referencedColumnName = "id")
+    @JoinColumn(referencedColumnName = "id")
     private RentCarEntity rentCar;
 }
