@@ -40,7 +40,6 @@ public class CarEntity {
     @Column(name = "car_type", nullable = false)
     private CarType carType;
 
-    @OneToOne
-    @JoinColumn(referencedColumnName = "id")
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "car")
     private RentCarEntity rentCar;
 }

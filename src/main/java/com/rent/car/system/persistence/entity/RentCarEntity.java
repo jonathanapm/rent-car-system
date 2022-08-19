@@ -15,7 +15,8 @@ public class RentCarEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer rentCarId;
 
-    @OneToOne(mappedBy = "rentCar")
+    @JoinColumn(name = "car_id")
+    @OneToOne(fetch = FetchType.EAGER)
     private CarEntity car;
 
     @Column(name = "date_rent", nullable = false)
