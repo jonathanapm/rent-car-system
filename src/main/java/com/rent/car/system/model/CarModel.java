@@ -8,6 +8,8 @@ import lombok.Data;
 @Builder
 public class CarModel {
 
+    private Integer id;
+
     private String color;
 
     private String year;
@@ -17,4 +19,6 @@ public class CarModel {
     private String make;
 
     private String model;
+
+    private Boolean available;
 }

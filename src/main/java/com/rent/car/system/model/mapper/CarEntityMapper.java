@@ -8,12 +8,13 @@ import java.time.LocalDateTime;
 public class CarEntityMapper {
 
     public static CarEntity map(CarModel carModel) {
-        return CarEntity.builder()
-                .color(carModel.getColor())
-                .year(carModel.getYear())
-                .carType(carModel.getCarType())
-                .model(carModel.getModel())
-                .registrationDate(LocalDateTime.now())
-                .make(carModel.getMake()).build();
+        CarEntity carEntity = new CarEntity();
+        carEntity.setColor(carModel.getColor());
+        carEntity.setYear(carModel.getYear());
+        carEntity.setCarType(carModel.getCarType());
+        carEntity.setModel(carModel.getModel());
+        carEntity.setRegistrationDate(LocalDateTime.now());
+        carEntity.setMake(carModel.getMake());
+        return carEntity;
     }
 }

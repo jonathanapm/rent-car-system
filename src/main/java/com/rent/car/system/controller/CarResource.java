@@ -18,15 +18,16 @@ public class CarResource {
     private CarService carService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity registerCar(@RequestBody CarModel carModel) {
+    public ResponseEntity<String> registerCar(@RequestBody CarModel carModel) {
         carService.save(carModel);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body("O carro " + carModel.getModel() + " foi registrado com sucesso");
     }
 
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity deleteCar(@PathVariable("id") Integer id) {
+    public ResponseEntity<String> deleteCar(@PathVariable("id") Integer id) {
         carService.delete(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body("Carro removido com sucesso");
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

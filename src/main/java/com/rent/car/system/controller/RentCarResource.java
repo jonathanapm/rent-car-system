@@ -11,21 +11,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/rent")
+@RequestMapping("/rent-car")
 public class RentCarResource {
 
     @Autowired
     private RentCarService rentCarService;
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public void rentCar() {
-
+    @GetMapping(value = "/rent/{carId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> rentCar(@PathVariable("carId") Integer carId) {
+        rentCarService.rentCar(carId);
+        return ResponseEntity.ok("Carro alugado com sucesso");
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity devolutionCar(@PathVariable("id") Integer rentCarId) {
+    @GetMapping(value = "/refund/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> devolutionCar(@PathVariable("id") Integer rentCarId) {
         rentCarService.devolutionCar(rentCarId);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok("Carro devolvido com sucesso");
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
