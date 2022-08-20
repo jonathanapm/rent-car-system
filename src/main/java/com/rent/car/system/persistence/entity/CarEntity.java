@@ -1,18 +1,15 @@
 package com.rent.car.system.persistence.entity;
 
 import com.rent.car.system.persistence.enums.CarType;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Builder
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 @Table(name = "tb_car")
 public class CarEntity {
 

@@ -12,4 +12,6 @@ public interface RentCarService {
     List<RentCarModel> findRentCars();
 
     List<RentCarModel> findRentCars(CarType carType);
+
+    void rentCar(Integer carId);
 }
