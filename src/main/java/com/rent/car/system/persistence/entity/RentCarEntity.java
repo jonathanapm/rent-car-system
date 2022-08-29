@@ -1,6 +1,5 @@
 package com.rent.car.system.persistence.entity;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "RentCar")
 @Table(name = "tb_rent_car")
 public class RentCarEntity {
 
@@ -19,7 +18,7 @@ public class RentCarEntity {
     private Integer rentCarId;
 
     @JoinColumn(name = "car_id")
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private CarEntity car;
 
     @Column(name = "date_rent", nullable = false)

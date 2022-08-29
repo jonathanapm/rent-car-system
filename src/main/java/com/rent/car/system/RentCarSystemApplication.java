@@ -3,14 +3,12 @@ package com.rent.car.system;
 import com.rent.car.system.persistence.entity.CarEntity;
 import com.rent.car.system.persistence.enums.CarType;
 import com.rent.car.system.persistence.repository.CarRepository;
-import com.rent.car.system.persistence.repository.RentCarRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
