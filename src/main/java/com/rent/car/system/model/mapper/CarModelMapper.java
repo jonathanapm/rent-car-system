@@ -7,14 +7,14 @@ import static java.util.Objects.isNull;
 
 public class CarModelMapper {
 
-    public static CarModel map(CarEntity carEntity) {
+    public static CarModel map(CarEntity car) {
         return CarModel.builder()
-                .id(carEntity.getId())
-                .make(carEntity.getMake())
-                .year(carEntity.getYear())
-                .model(carEntity.getModel())
-                .carType(carEntity.getCarType())
-                .color(carEntity.getColor())
-                .available(isNull(carEntity.getRentCar())).build();
+                .id(car.getId())
+                .make(car.getMake())
+                .year(car.getYear())
+                .model(car.getModel())
+                .carType(car.getCarType())
+                .color(car.getColor())
+                .available(isNull(car.getRentCar())).build();
     }
 }

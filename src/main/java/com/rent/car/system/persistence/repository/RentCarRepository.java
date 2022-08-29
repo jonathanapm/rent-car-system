@@ -7,6 +7,4 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface RentCarRepository extends JpaRepository<RentCarEntity, Integer> {
-//    Optional<RentCarEntity> findByRentCarById(Integer carId);
-}
+public interface RentCarRepository extends JpaRepository<RentCarEntity, Integer> {}
